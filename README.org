@@ -1,0 +1,45 @@
+#+TITLE: nix-switch-boot
+A dead simple nixos module that automatically injects hekate to switch
+* Quick Start
+#+begin_src nix
+{
+  description = "Your NixOS configuration";
+
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    nix-switch-boot = {
+      url = "github:nyawox/nix-switch-boot";
+      # Recommended to not clutter your flake.lock
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+
+  outputs = { self, nixpkgs, nix-switch-boot, ...}: {
+    nixosConfigurations = {
+      yourHost = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+
+        modules = [
+          # This is not a complete NixOS configuration and you need to reference
+          # your normal configuration here.
+
+          # Import the module
+          nix-switch-boot.nixosModules.nix-switch-boot
+
+          ({
+            # Enable the service
+            services.switch-boot.enable = true;
+          })
+        ];
+      };
+    };
+  };
+}
+#+end_src
+
+Just plug your unpatched V1 switch in RCM mode to XHCI USB port, enjoy :)
+
+Execute ~systemctl status switch-boot~ to debug
+
+~dmesg --follow~ to see if your switch is recognized
