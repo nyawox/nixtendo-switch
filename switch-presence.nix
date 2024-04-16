@@ -51,13 +51,14 @@ in {
     };
   };
   config = mkIf cfg.enable {
-    systemd.services.switch-presence = {
+    systemd.user.services.switch-presence = {
       enable = true;
       description = "Nintendo switch discord rich presence client";
-      wantedBy = ["multi-user.target"];
+      wantedBy = ["default.target"];
       serviceConfig = {
         EnvironmentFile = config.services.switch-presence.environmentFile;
         ExecStart = "${presence-client}/bin/presence-client ${config.services.switch-presence.args}";
+        Restart = "on-failure";
       };
     };
   };
