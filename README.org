@@ -35,8 +35,15 @@ A NixOS module for hacked nintendo switch
               # You must provide a .env file containing both
               # $IP: The IP address of your switch.
               # $APPLICATION_ID: The Client ID of your Discord Rich Presence application.
-              environmentFile = config.sops.secrets.switch.path;
+              environmentFile = config.sops.secrets.switch-presence.path;
             };
+            sops.secrets."switch-presence" = {
+              sopsFile = ./switch-presence.env;
+              format = "dotenv";
+              owner = config.users.users.${username}.name;
+              group = config.users.users.${username}.group;
+            };
+
           })
         ];
       };
