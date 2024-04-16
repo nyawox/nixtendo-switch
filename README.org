@@ -33,8 +33,8 @@ A NixOS module for hacked nintendo switch
             services.switch-presence = {
               enable = true;
               # You must provide a .env file containing both
-              # $switch_presence_ip: The IP address of your device.
-              # $switch_presence_id: The Client ID of your Discord Rich Presence application.
+              # $IP: The IP address of your switch.
+              # $APPLICATION_ID: The Client ID of your Discord Rich Presence application.
               environmentFile = config.sops.secrets.switch.path;
             };
           })

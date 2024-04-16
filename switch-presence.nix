@@ -56,7 +56,7 @@ in {
       description = "Nintendo switch presence client";
       serviceConfig = {
         EnvironmentFile = config.services.switch-presence.environmentFile;
-        ExecStart = "${presence-client}/bin/presence-client $switch_presence_ip $switch_presence_id";
+        ExecStart = "${presence-client}/bin/presence-client ${config.services.switch-presence.args}";
       };
     };
   };
