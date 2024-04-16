@@ -38,7 +38,7 @@ in {
       };
       args = mkOption {
         type = types.string;
-        default = "--ignore-tinfoil --low-latency";
+        default = "--ignore-tinfoil --low-latancy";
       };
       environmentFile = mkOption {
         type = types.nullOr types.path;
