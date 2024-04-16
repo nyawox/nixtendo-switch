@@ -1,5 +1,5 @@
 #+TITLE: nixtendo-switch
-A nixos module for hacked nintendo switch
+A NixOS module for hacked nintendo switch
 * Quick Start
 #+begin_src nix
 {

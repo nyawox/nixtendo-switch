@@ -49,7 +49,7 @@ in {
     };
   };
   config = mkIf cfg.enable {
-    systemd.services.switch = {
+    systemd.services.switch-presence = {
       enable = true;
       description = "Nintendo switch presence client";
       serviceConfig = {
