@@ -30,6 +30,13 @@ A nixos module for hacked nintendo switch
           ({
             # Enable the service
             services.switch-boot.enable = true;
+            switch-presence = {
+              enable = true;
+              # You must provide a .env file containing both
+              # $switch-presence-ip: The IP address of your device.
+              # $switch-presence-id: The Client ID of your Discord Rich Presence application.
+              environmentFile = config.sops.secrets.switch.path;
+            };
           })
         ];
       };
@@ -38,8 +45,10 @@ A nixos module for hacked nintendo switch
 }
 #+end_src
 
+** switch-boot 
+It automatically injects hekate
 Just plug your unpatched V1 switch in RCM mode to XHCI USB port, enjoy :)
-
-Execute ~systemctl status switch-boot~ to debug
-
 ~dmesg --follow~ to see if your switch is recognized
+
+** switch-presence
+You need [[https://github.com/SunResearchInstitute/SwitchPresence-Rewritten][this]] sysmodule installed in order to use discord rpc
