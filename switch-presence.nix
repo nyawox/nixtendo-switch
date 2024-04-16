@@ -2,12 +2,18 @@
   config,
   lib,
   pkgs,
-  inputs,
   ...
 }:
 with lib; let
   cfg = config.services.switch-presence;
-  presence-client-src = inputs.presence-client + "/PresenceClient/PresenceClient-Py/presence-client.py";
+  presence-client-src =
+    pkgs.fetchFromGitHub {
+      owner = "lenooby09";
+      repo = "presenceclient";
+      rev = "890c510f27add83eaa0217444d7385cceb45ee08";
+      hash = "sha256-34rCyEJ9jiAYxrOMo5uzuX1mi7Kw5vcZZc4p0NuIkeE=";
+    }
+    + "/PresenceClient/PresenceClient-Py/presence-client.py";
   presence-client = pkgs.stdenv.mkDerivation {
     pname = "presence-client";
     version = "unstable-2023-12-19";

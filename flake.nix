@@ -3,10 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    presence-client = {
-      url = "github:LeNooby09/PresenceClient";
-      flake = false;
-    };
   };
 
   outputs = inputs @ {flake-parts, ...}:
