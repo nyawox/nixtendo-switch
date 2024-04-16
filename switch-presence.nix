@@ -54,6 +54,7 @@ in {
     systemd.services.switch-presence = {
       enable = true;
       description = "Nintendo switch presence client";
+      wantedBy = ["graphical-session.target"];
       serviceConfig = {
         EnvironmentFile = config.services.switch-presence.environmentFile;
         ExecStart = "${presence-client}/bin/presence-client ${config.services.switch-presence.args}";
