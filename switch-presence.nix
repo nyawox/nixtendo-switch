@@ -25,7 +25,7 @@ with lib; let
         ]))
     ];
     installPhase = ''
-      install -Dm755 PresenceClient/PresenceClent-Py/presence-client.py $out/bin/presence-client
+      install -Dm755 PresenceClient/PresenceClient-Py/presence-client.py $out/bin/presence-client
       sed -i '1 i #!/usr/bin/env python3' $out/bin/presence-client
     '';
   };

@@ -30,7 +30,7 @@ A NixOS module for hacked nintendo switch
           ({
             # Enable the service
             services.switch-boot.enable = true;
-            switch-presence = {
+            services.switch-presence = {
               enable = true;
               # You must provide a .env file containing both
               # $switch_presence_ip: The IP address of your device.
