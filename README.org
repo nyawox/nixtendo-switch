@@ -25,7 +25,7 @@ A nixos module for hacked nintendo switch
           # your normal configuration here.
 
           # Import the module
-          nixtendo-switch.nixosModules.default
+          nixtendo-switch.nixosModules.nixtendo-switch
 
           ({
             # Enable the service
