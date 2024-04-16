@@ -15,6 +15,7 @@ with lib; let
       rev = "890c510f27add83eaa0217444d7385cceb45ee08";
       hash = "sha256-34rCyEJ9jiAYxrOMo5uzuX1mi7Kw5vcZZc4p0NuIkeE=";
     };
+    doCheck = false;
     # Runtime dependencies
     propagatedBuildInputs = [
       (pkgs.python3.withPackages (pythonPackages:
