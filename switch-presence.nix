@@ -42,8 +42,8 @@ in {
         type = types.nullOr types.path;
         example = ''
           You must specify an environment file containing both
-          $switch-presence-ip: The IP address of your device.
-          $switch-presence-id: The Client ID of your Discord Rich Presence application.
+          $switch_presence_ip: The IP address of your device.
+          $switch_presence_id: The Client ID of your Discord Rich Presence application.
         '';
       };
     };
@@ -54,7 +54,7 @@ in {
       description = "Nintendo switch presence client";
       serviceConfig = {
         EnvironmentFile = config.services.switch-presence.environmentFile;
-        ExecStart = "${presence-client}/bin/presence-client $switch-presence-ip $switch-presence-id";
+        ExecStart = "${presence-client}/bin/presence-client $switch_presence_ip $switch_presence_id";
       };
     };
   };
