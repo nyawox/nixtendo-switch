@@ -41,7 +41,7 @@ A NixOS module for hacked nintendo switch
               sopsFile = ./switch-presence.env;
               format = "dotenv";
               owner = config.users.users.${username}.name;
-              group = config.users.users.${username}.group;
+              inherit (config.users.users.${username}) group;
             };
 
           })
