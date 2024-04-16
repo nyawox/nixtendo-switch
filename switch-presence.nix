@@ -6,26 +6,25 @@
 }:
 with lib; let
   cfg = config.services.switch-presence;
-  presence-client-src =
-    pkgs.fetchFromGitHub {
+  presence-client = pkgs.python3Packages.buildPythonApplication {
+    pname = "presence-client";
+    version = "unstable-2023-12-19";
+    src = pkgs.fetchFromGitHub {
       owner = "lenooby09";
       repo = "presenceclient";
       rev = "890c510f27add83eaa0217444d7385cceb45ee08";
       hash = "sha256-34rCyEJ9jiAYxrOMo5uzuX1mi7Kw5vcZZc4p0NuIkeE=";
-    }
-    + "/PresenceClient/PresenceClient-Py/presence-client.py";
-  presence-client = pkgs.stdenv.mkDerivation {
-    pname = "presence-client";
-    version = "unstable-2023-12-19";
+    };
+    # Runtime dependencies
     propagatedBuildInputs = [
       (pkgs.python3.withPackages (pythonPackages:
         with pythonPackages; [
+          requests
           pypresence
           python-dotenv
         ]))
     ];
-    dontUnpack = true;
-    installPhase = "install -Dm755 ${presence-client-src} $out/bin/presence-client";
+    installPhase = "install -Dm755 PresenceClient/PresenceClent-Py/presence-client.py $out/bin/presence-client";
   };
 in {
   options = {
