@@ -54,8 +54,10 @@ A NixOS module for hacked nintendo switch
 
 ** switch-boot 
 It automatically injects hekate
+
 Just plug your unpatched V1 switch in RCM mode to XHCI USB port, enjoy :)
+
 ~dmesg --follow~ to see if your switch is recognized
 
 ** switch-presence
-Fix [[https://github.com/SunResearchInstitute/SwitchPresence-Rewritten][this]] sysmodule installed in order to use discord rpc
+Requires [[https://github.com/SunResearchInstitute/SwitchPresence-Rewritten][this]] sysmodule installed in order to use discord rpc
