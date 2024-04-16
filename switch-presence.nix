@@ -53,7 +53,7 @@ in {
   config = mkIf cfg.enable {
     systemd.services.switch-presence = {
       enable = true;
-      description = "Nintendo switch presence client";
+      description = "Nintendo switch discord rich presence client";
       wantedBy = ["graphical-session.target"];
       serviceConfig = {
         EnvironmentFile = config.services.switch-presence.environmentFile;
