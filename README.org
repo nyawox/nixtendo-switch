@@ -1,5 +1,5 @@
-#+TITLE: nix-switch-boot
-A dead simple nixos module that automatically injects hekate to switch
+#+TITLE: nixtendo-switch
+A nixos module for hacked nintendo switch
 * Quick Start
 #+begin_src nix
 {
@@ -8,14 +8,14 @@ A dead simple nixos module that automatically injects hekate to switch
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    nix-switch-boot = {
-      url = "github:nyawox/nix-switch-boot";
+    nixtendo-switch = {
+      url = "github:nyawox/nixtendo-switch";
       # Recommended to not clutter your flake.lock
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, nix-switch-boot, ...}: {
+  outputs = { self, nixpkgs, nixtendo-switch, ...}: {
     nixosConfigurations = {
       yourHost = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -25,7 +25,7 @@ A dead simple nixos module that automatically injects hekate to switch
           # your normal configuration here.
 
           # Import the module
-          nix-switch-boot.nixosModules.nix-switch-boot
+          nixtendo-switch.nixosModules.default
 
           ({
             # Enable the service

@@ -1,15 +1,22 @@
 {
-  description = "Simple automatic nintendo switch payload injector module for nixos";
+  description = "NixOS module for hacked nintendo switch";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    presence-client = {
+      url = "github:LeNooby09/PresenceClient";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {flake-parts, ...}:
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin"];
-      flake.nixosModules.nix-switch-boot = {
-        imports = [./switch-boot.nix];
+      flake.nixosModules.nixtendo-switch = {
+        imports = [
+          ./switch-boot.nix
+          ./switch-presence.nix
+        ];
       };
     };
 }
