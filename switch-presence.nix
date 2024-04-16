@@ -6,7 +6,7 @@
 }:
 with lib; let
   cfg = config.services.switch-presence;
-  presence-client = pkgs.mkDerivation {
+  presence-client = pkgs.stdenvNoCC.mkDerivation {
     pname = "presence-client";
     version = "unstable-2023-12-19";
     src = pkgs.fetchFromGitHub {
