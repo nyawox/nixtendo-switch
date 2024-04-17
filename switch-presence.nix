@@ -59,6 +59,7 @@ in {
         EnvironmentFile = config.services.switch-presence.environmentFile;
         ExecStart = "${presence-client}/bin/presence-client ${config.services.switch-presence.args}";
         Restart = "on-failure";
+        RestartSec = "60s";
       };
     };
   };
