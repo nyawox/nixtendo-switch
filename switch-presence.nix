@@ -37,7 +37,7 @@ in {
         default = false;
       };
       args = mkOption {
-        type = types.string;
+        type = types.str;
         default = "--ignore-tinfoil --low-latancy";
       };
       environmentFile = mkOption {
