@@ -8,11 +8,11 @@ with lib; let
   cfg = config.services.switch-boot;
   hekate =
     pkgs.fetchzip {
-      url = "https://github.com/CTCaer/hekate/releases/download/v6.0.7/hekate_ctcaer_6.0.7_Nyx_1.5.6.zip";
-      sha256 = "18ldq8gm3k5jy0siz3ajjirr40s0095092g65zl6pjfdq11gvppn";
+      url = "https://github.com/CTCaer/hekate/releases/download/v6.1.1/hekate_ctcaer_6.1.1_Nyx_1.6.1.zip";
+      hash = "sha256-WEy/ftldCwU/TXXOGDkQ3Q0JaVm0NchDkkZ5PBbDlR4=";
       stripRoot = false;
     }
-    + "/hekate_ctcaer_6.0.7.bin";
+    + "/hekate_ctcaer_6.1.1.bin";
 in {
   options = {
     services.switch-boot = {
