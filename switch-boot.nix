@@ -6,13 +6,15 @@
 }:
 with lib; let
   cfg = config.services.switch-boot;
+  hekate-ver = "6.2.1";
+  nyx-ver = "1.6.3";
   hekate =
     pkgs.fetchzip {
-      url = "https://github.com/CTCaer/hekate/releases/download/v6.1.1/hekate_ctcaer_6.1.1_Nyx_1.6.1.zip";
-      hash = "sha256-WEy/ftldCwU/TXXOGDkQ3Q0JaVm0NchDkkZ5PBbDlR4=";
+      url = "https://github.com/CTCaer/hekate/releases/download/v${hekate-ver}/hekate_ctcaer_${hekate-ver}_Nyx_${nyx-ver}.zip";
+      hash = "";
       stripRoot = false;
     }
-    + "/hekate_ctcaer_6.1.1.bin";
+    + "/hekate_ctcaer_${hekate-ver}.bin";
 in {
   options = {
     services.switch-boot = {
