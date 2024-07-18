@@ -20,6 +20,10 @@ in {
         type = types.bool;
         default = false;
       };
+      payload = mkOption {
+        type = types.path;
+        default = hekate;
+      };
     };
   };
   config = mkIf cfg.enable {
@@ -28,7 +32,7 @@ in {
       description = "Switch payload injector";
       serviceConfig = {
         # fusee-launcher and fusee-nano not working
-        ExecStart = "${pkgs.jre}/bin/java -jar ${pkgs.ns-usbloader}/share/java/ns-usbloader.jar -r ${hekate}";
+        ExecStart = "${pkgs.jre}/bin/java -jar ${pkgs.ns-usbloader}/share/java/ns-usbloader.jar -r ${cfg.payload}";
       };
     };
     services.udev.extraRules = ''
