@@ -11,7 +11,7 @@ with lib; let
   hekate =
     pkgs.fetchzip {
       url = "https://github.com/CTCaer/hekate/releases/download/v${hekate-ver}/hekate_ctcaer_${hekate-ver}_Nyx_${nyx-ver}.zip";
-      hash = "";
+      hash = "sha256-KqGioq7+KcdOE2YJNAoZN63WS3xedvdIvQITC1eX14g=";
       stripRoot = false;
     }
     + "/hekate_ctcaer_${hekate-ver}.bin";
