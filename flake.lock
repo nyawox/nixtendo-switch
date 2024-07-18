@@ -51,27 +51,10 @@
         "type": "github"
       }
     },
-    "presence-client": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1702914741,
-        "narHash": "sha256-34rCyEJ9jiAYxrOMo5uzuX1mi7Kw5vcZZc4p0NuIkeE=",
-        "owner": "LeNooby09",
-        "repo": "PresenceClient",
-        "rev": "890c510f27add83eaa0217444d7385cceb45ee08",
-        "type": "github"
-      },
-      "original": {
-        "owner": "LeNooby09",
-        "repo": "PresenceClient",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "flake-parts": "flake-parts",
-        "nixpkgs": "nixpkgs",
-        "presence-client": "presence-client"
+        "nixpkgs": "nixpkgs"
       }
     }
   },
