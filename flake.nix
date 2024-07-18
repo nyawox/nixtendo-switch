@@ -16,5 +16,8 @@
           ];
         };
       };
+      perSystem = {pkgs, ...}: {
+        packages.uscreen = pkgs.callPackage ./uscreen.nix {};
+      };
     };
 }
