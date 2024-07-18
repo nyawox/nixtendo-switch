@@ -44,8 +44,8 @@ in {
         type = types.nullOr types.path;
         example = ''
           You must specify an environment file containing both
-          $switch_presence_ip: The IP address of your device.
-          $switch_presence_id: The Client ID of your Discord Rich Presence application.
+          $IP: The IP address of your device.
+          $APPLICATION_ID: The Client ID of your Discord Rich Presence application.
         '';
       };
     };
